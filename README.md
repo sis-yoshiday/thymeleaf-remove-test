@@ -1,4 +1,4 @@
-1. edit below parameter, then you can switch thymeleaf version.
+### edit below parameter, then you can switch thymeleaf version.
 
 - build.gradle
 
@@ -20,13 +20,13 @@ spring:
 #    mode: HTML5
 ```
 
-2. start application 
+### refresh gradle project and start application 
 
 ```bash
 ./gradlew bootRun
 ```
 
-3. confirm result
+### confirm result
 
 ```bash
 curl http://localhost:8080
