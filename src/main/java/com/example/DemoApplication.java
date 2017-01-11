@@ -19,6 +19,7 @@ public class DemoApplication {
   public String index(Model model) {
 
     model.addAttribute("rows", Collections.emptyList());
+    model.addAttribute("items", Collections.emptyList());
 
     return "index";
   }

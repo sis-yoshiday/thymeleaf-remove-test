@@ -17,31 +17,83 @@
           crossorigin="anonymous"></script>
 </head>
 <body>
+<section>
+  <h2>passing empty list as table rows</h2>
 
-<h2>passing empty list as table rows</h2>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>col1</th>
+      <th>col2</th>
+    </tr>
+    </thead>
+    <tbody th:remove="all-but-first">
+    <!--/*@thymesVar id="rows" type="java.util.List<javafx.util.Pair<String, String>>"*/-->
+    <tr th:each="r : ${rows}">
+      <td th:text="${r.key}">row1</td>
+      <td th:text="${r.value}">should not be shown</td>
+    </tr>
+    <tr>
+      <td>row2</td>
+      <td>should not be shown</td>
+    </tr>
+    <tr>
+      <td>row3</td>
+      <td>should not be shown</td>
+    </tr>
+    </tbody>
+  </table>
+</section>
 
-<table class="table">
-  <thead>
-  <tr>
-    <th>col1</th>
-    <th>col2</th>
-  </tr>
-  </thead>
-  <tbody th:remove="all-but-first">
-  <!--/*@thymesVar id="rows" type="java.util.List<javafx.util.Pair<String, String>>"*/-->
-  <tr th:each="r : ${rows}">
-    <td th:text="${r.key}">row1</td>
-    <td th:text="${r.value}">should not be shown</td>
-  </tr>
-  <tr>
-    <td>row2</td>
-    <td>should not be shown</td>
-  </tr>
-  <tr>
-    <td>row3</td>
-    <td>should not be shown</td>
-  </tr>
-  </tbody>
-</table>
+<section>
+  <h2>passing empty list as table rows (workaround)</h2>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th>col1</th>
+      <th>col2</th>
+    </tr>
+    </thead>
+    <tbody th:remove="all-but-first">
+    <!--/*@thymesVar id="rows" type="java.util.List<javafx.util.Pair<String, String>>"*/-->
+    <tr th:each="r : ${rows}">
+      <td th:text="${r.key}">row1</td>
+      <td th:text="${r.value}">should not be shown</td>
+    </tr>
+    <tr th:remove="all">
+      <td>row2</td>
+      <td>should not be shown</td>
+    </tr>
+    <tr>
+      <td>row3</td>
+      <td>should not be shown</td>
+    </tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>passing empty list as list item</h2>
+
+  <ul th:remove="all-but-first">
+    <!--/*@thymesVar id="items" type="java.util.List<String>"*/-->
+    <li th:each="item : ${items}" th:text="${item}">item1, should not be shown</li>
+    <li>item2, should not be shown</li>
+    <li>item3, should not be shown</li>
+  </ul>
+</section>
+
+<section>
+  <h2>passing empty list as list item (workaround)</h2>
+
+  <ul th:remove="all-but-first">
+    <!--/*@thymesVar id="items" type="java.util.List<String>"*/-->
+    <li th:each="item : ${items}" th:text="${item}">item1, should not be shown</li>
+    <li th:remove="all">item2, should not be shown</li>
+    <li>item3, should not be shown</li>
+  </ul>
+</section>
+
 </body>
 </html>
