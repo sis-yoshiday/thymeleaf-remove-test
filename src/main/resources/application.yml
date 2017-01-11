@@ -1,7 +1,7 @@
 spring:
   thymeleaf:
 # thymeleaf3.x
-#    mode: HTML
+    mode: HTML
 # thymeleaf2.x
-    mode: HTML5
+#    mode: HTML5
     cache: false

@@ -1,46 +1,47 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="ja">
 <head>
-    <meta charset="UTF-8"/>
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
-          crossorigin="anonymous"/>
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
-            integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-            integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-            crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
-            integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-            crossorigin="anonymous"></script>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+        integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous"/>
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+          integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+          crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+          integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+          crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+          integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+          crossorigin="anonymous"></script>
 </head>
 <body>
 
 <h2>passing empty list as table rows</h2>
+
 <table class="table">
-    <thead>
-    <tr>
-        <th>col1</th>
-        <th>col2</th>
-    </tr>
-    </thead>
-    <tbody th:remove="all-but-first">
-    <!--/*@thymesVar id="rows" type="java.util.List<javafx.util.Pair<String, String>>"*/-->
-    <tr th:each="r : ${rows}">
-        <td th:text="${r.key}">row1,col1 should not be shown</td>
-        <td th:text="${r.value}">row1,col2 should not be shown</td>
-    </tr>
-    <tr>
-        <td>row2,col1 should not be shown</td>
-        <td>row2,col2 should not be shown</td>
-    </tr>
-    <tr>
-        <td>row3,col1 should not be shown</td>
-        <td>row3,col2 should not be shown</td>
-    </tr>
-    </tbody>
+  <thead>
+  <tr>
+    <th>col1</th>
+    <th>col2</th>
+  </tr>
+  </thead>
+  <tbody th:remove="all-but-first">
+  <!--/*@thymesVar id="rows" type="java.util.List<javafx.util.Pair<String, String>>"*/-->
+  <tr th:each="r : ${rows}">
+    <td th:text="${r.key}">row1</td>
+    <td th:text="${r.value}">should not be shown</td>
+  </tr>
+  <tr>
+    <td>row2</td>
+    <td>should not be shown</td>
+  </tr>
+  <tr>
+    <td>row3</td>
+    <td>should not be shown</td>
+  </tr>
+  </tbody>
 </table>
 </body>
 </html>
